@@ -331,3 +331,14 @@ footer {
 .list .text {
   opacity: 0.9;
 }
+/* ===== Mobile SNS icon size fix ===== */
+@media (max-width: 768px) {
+  .menu-sns {
+    bottom: 60px;          /* 少し上に */
+    gap: 36px;             /* 間隔広げる */
+  }
+
+  .menu-sns a {
+    font-size: 2.6rem;     /* ← ここが肝 */
+  }
+}
