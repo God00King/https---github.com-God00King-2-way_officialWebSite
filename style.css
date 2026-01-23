@@ -1,0 +1,333 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.3em;
+  margin: 0;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.music {
+  margin-top: 80px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  margin-top: 30px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.profile .title {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 20px 0 30px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.profile .description {
+  line-height: 1.9;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.music {
+  margin-top: 80px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* MENU BUTTON */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+/* MENU OVERLAY */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.65); /* ←ここ変更 */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.4s ease;
+}
+
+
+.menu.active {
+  right: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  margin: 20px 0;
+}
+
+.menu a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  opacity: 0.6;
+}
+
+.menu .back a {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+.menu-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.1rem;        /* ← 少し大きく */
+  letter-spacing: 0.35em;
+
+  padding: 18px 26px;       /* ← 面積アップ */
+  border: 2.5px solid #fff;
+
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05); /* ← ちょい強調 */
+}
+
+/* SNS ICONS IN MENU */
+.menu-sns {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.menu-sns a {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-sns a:hover {
+  opacity: 0.6;
+  transform: translateY(-4px);
+}
+/* HERO BASE */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* TEXT */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.2s ease;
+}
+
+/* BACKGROUND IMAGE */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("2_way_topImage.jpeg"); /* ← 画像パス */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 1;
+}
+
+/* ANIMATION STATES */
+.hero.hide-text .hero-text {
+  opacity: 0;
+}
+
+.hero.show-bg .hero-bg {
+  opacity: 1;
+}
+/* BIG LOGO ON HERO IMAGE */
+.hero-logo {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  letter-spacing: 0.15em;
+
+  color: #ff7a00; /* オレンジ */
+  opacity: 0;
+
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+/* 背景が出たあとにロゴ表示 */
+.hero.show-bg .hero-logo {
+  opacity: 1;
+}
+/* BACK TO TOP BUTTON */
+.back-to-top {
+  display: block;
+  margin: 80px auto 40px;
+
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+
+  padding: 12px 24px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: #fff;
+  color: #000;
+}
+.section {
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* LIST（NEWS / LIVE） */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.list .date {
+  opacity: 0.6;
+  min-width: 90px;
+}
+
+.list .text {
+  opacity: 0.9;
+}
