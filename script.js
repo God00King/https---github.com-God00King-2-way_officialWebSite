@@ -1,3 +1,61 @@
+/* =====================
+   CMS連携 (microCMS)
+===================== */
+const CMS_ENDPOINT = "https://2way-official.microcms.io/api/v1";
+const CMS_API_KEY = "fRJX0nlBGAZXrWij0Kw4HDqsPPuSIHPuB3mQ";
+
+async function fetchCms(path) {
+  const res = await fetch(`${CMS_ENDPOINT}/${path}`, {
+    headers: { "X-MICROCMS-API-KEY": CMS_API_KEY }
+  });
+  if (!res.ok) {
+    console.error("CMS取得失敗:", path, res.status);
+    return null;
+  }
+  return res.json();
+}
+
+async function renderProfile() {
+  const data = await fetchCms("profile");
+  if (!data) return;
+  const titleEl = document.querySelector(".profile .title");
+  const descEl = document.querySelector(".profile .description");
+  if (titleEl) titleEl.textContent = data.title;
+  if (descEl) descEl.innerHTML = data.description.replace(/\n/g, "<br>");
+}
+
+async function renderNews() {
+  const data = await fetchCms("news?limit=10");
+  if (!data) return;
+  const list = document.querySelector("#news .list");
+  if (!list) return;
+  list.innerHTML = data.contents.map(item => `
+    <li>
+      <span class="date">${item.date}</span>
+      <span class="text">${item.text}</span>
+    </li>
+  `).join("");
+}
+
+async function renderLive() {
+  const data = await fetchCms("live?limit=10");
+  if (!data) return;
+  const list = document.querySelector("#live .list");
+  if (!list) return;
+  list.innerHTML = data.contents.map(item => `
+    <li>
+      <span class="date">${item.date}</span>
+      <span class="text">${item.text}</span>
+    </li>
+  `).join("");
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  renderProfile();
+  renderNews();
+  renderLive();
+});
+
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 const backToTopBtn = document.getElementById("backToTop");
