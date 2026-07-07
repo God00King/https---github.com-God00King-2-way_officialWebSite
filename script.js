@@ -50,6 +50,7 @@ async function renderLive() {
       <span class="event">${item.event}</span>
       <span class="date">${item.date}</span>
       <span class="place">${item.place}</span>
+      ${item.image ? `<img class="live-image" src="${item.image.url}" alt="${item.event || ""}">` : ""}
     </li>
   `).join("");
 }
