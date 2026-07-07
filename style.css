@@ -231,9 +231,8 @@ footer {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("2_way_topImage.jpg"); /* ← 画像パス */
   background-size: cover;
-  background-position: center top;
+  background-position: center top; /* ← centerからcenter topに変更 */
   opacity: 0;
   transition: opacity 2s ease;
   z-index: 1;
