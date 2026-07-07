@@ -22,6 +22,13 @@ async function renderProfile() {
   const descEl = document.querySelector(".profile .description");
   if (titleEl) titleEl.textContent = data.title;
   if (descEl) descEl.innerHTML = data.description.replace(/\n/g, "<br>");
+  
+  if (data.image) {
+    const heroBg = document.querySelector(".hero-bg");
+    if (heroBg) {
+      heroBg.style.backgroundImage = `url("${data.image.url}")`;
+    }
+  }
 }
 
 async function renderNews() {
@@ -31,8 +38,10 @@ async function renderNews() {
   if (!list) return;
   list.innerHTML = data.contents.map(item => `
     <li>
-      <span class="date">${item.date}</span>
-      <span class="text">${item.text}</span>
+      <span class="date">${item.date || ""}</span>
+      ${item.title ? `<span class="news-title">${item.title}</span>` : ""}
+      ${item.image ? `<img class="news-image" src="${item.image.url}" alt="${item.title || ""}">` : ""}
+      ${item.body ? `<p class="news-body">${item.body.replace(/\n/g, "<br>")}</p>` : ""}
     </li>
   `).join("");
 }
@@ -44,8 +53,10 @@ async function renderLive() {
   if (!list) return;
   list.innerHTML = data.contents.map(item => `
     <li>
+      <span class="category">${item.category}</span>
+      <span class="event">${item.event}</span>
       <span class="date">${item.date}</span>
-      <span class="text">${item.text}</span>
+      <span class="place">${item.place}</span>
     </li>
   `).join("");
 }
