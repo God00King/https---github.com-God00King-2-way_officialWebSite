@@ -22,13 +22,6 @@ async function renderProfile() {
   const descEl = document.querySelector(".profile .description");
   if (titleEl) titleEl.textContent = data.title;
   if (descEl) descEl.innerHTML = data.description.replace(/\n/g, "<br>");
-  
-  if (data.image) {
-    const heroBg = document.querySelector(".hero-bg");
-    if (heroBg) {
-      heroBg.style.backgroundImage = `url("${data.image.url}")`;
-    }
-  }
 }
 
 async function renderNews() {
