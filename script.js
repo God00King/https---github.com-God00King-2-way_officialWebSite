@@ -21,14 +21,14 @@ function linkify(text) {
     .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#ff7a00;">$1</a>');
 }
 
-async function renderProfile() {
-  const data = await fetchCms("profile");
-  if (!data) return;
-  const titleEl = document.querySelector(".profile .title");
-  const descEl = document.querySelector(".profile .description");
-  if (titleEl) titleEl.textContent = data.title;
-  if (descEl) descEl.innerHTML = data.description.replace(/\n/g, "<br>");
-}
+// async function renderProfile() {
+//   const data = await fetchCms("profile");
+//   if (!data) return;
+//   const titleEl = document.querySelector(".profile .title");
+//   const descEl = document.querySelector(".profile .description");
+//   if (titleEl) titleEl.textContent = data.title;
+//   if (descEl) descEl.innerHTML = data.description.replace(/\n/g, "<br>");
+// }
 
 async function renderNews() {
   const data = await fetchCms("news?limit=10");
@@ -62,7 +62,7 @@ async function renderLive() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  renderProfile();
+  // renderProfile();
   renderNews();
   renderLive();
 });

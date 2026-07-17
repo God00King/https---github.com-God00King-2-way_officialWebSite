@@ -445,3 +445,56 @@ footer {
   background: #e06900;
   transform: scale(1.05);
 }
+
+/* 性教育ページ HERO */
+.sei-hero {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  text-align: center;
+}
+
+.sei-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.sei-hero p {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+/* 性教育ページ リスト */
+.sei-list li {
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 50px;
+}
+
+/* 配布ボタン */
+.distribute-btn {
+  display: inline-block;
+  background: #ff7a00;
+  color: #000;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  padding: 14px 36px;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.distribute-btn:hover {
+  background: #e06900;
+  transform: scale(1.05);
+}
