@@ -426,3 +426,22 @@ footer {
   border-radius: 4px;
   display: block;
 }
+
+#discography a {
+  display: inline-block;
+  background: #ff7a00;
+  color: #000;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  padding: 14px 36px;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+#discography a:hover {
+  background: #e06900;
+  transform: scale(1.05);
+}

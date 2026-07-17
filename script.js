@@ -15,6 +15,12 @@ async function fetchCms(path) {
   return res.json();
 }
 
+function linkify(text) {
+  return text
+    .replace(/\n/g, "<br>")
+    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#ff7a00;">$1</a>');
+}
+
 async function renderProfile() {
   const data = await fetchCms("profile");
   if (!data) return;
@@ -34,7 +40,7 @@ async function renderNews() {
       <span class="date">${item.date || ""}</span>
       ${item.title ? `<span class="news-title">${item.title}</span>` : ""}
       ${item.image ? `<img class="news-image" src="${item.image.url}" alt="${item.title || ""}">` : ""}
-      ${item.body ? `<p class="news-body">${item.body.replace(/\n/g, "<br>")}</p>` : ""}
+      ${item.body ? `<p class="news-body">${linkify(item.body)}</p>` : ""}
     </li>
   `).join("");
 }
